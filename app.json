@@ -1,8 +1,8 @@
 {
-    "name": "KyyMusic",
+    "name": "MusicKyura",
     "description": "Music allow you to stream music trought the telegram voice chat feature.",
     "keywords": ["music", "voice chat", "telegram"],
-    "repository": "https://github.com/muhamadrizky16/KyyMusic",
+    "repository": "https://github.com/Kyuraxp/MusicKyura",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
@@ -37,12 +37,12 @@
         "GROUP": {
             "description": "Isi dengan username group tanpa @",
             "required": true,
-            "value": "NastySupportt"
+            "value": "KyuraSupport"
         },
          "CHANNEL": {
             "description": "Isi dengan username channel tanpa @",
             "required": true,
-            "value": "NastyProject"
+            "value": "KyuraProjects"
         },
         "SUDO_USERS": {
             "description": "fill with the user id who can access all function in your bot (separate with space).",
