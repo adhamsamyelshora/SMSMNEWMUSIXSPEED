@@ -261,9 +261,9 @@ async def stop_cmd(_, message):
                         f"""
 <b>⏭️ Melewati lagu</b>
 
-<b>🏷 Nama:</b>[{title[:25]}]({url})
-<b>⏱️ Durasi:</b> {duration}
-<b>🎧 Atas permintaan:</b> {semx.mention}
+<b>🏷 Nama Kontol:</b>[{title[:25]}]({url})
+<b>⏱️ Durasi Kontol:</b> {duration}
+<b>🎧 Atas permintaan sikontol:</b> {semx.mention}
 """
                     ),
                 )
@@ -298,9 +298,9 @@ async def stop_cmd(_, message):
                     caption=f"""
 <b>⏭️ Melewati lagu</b>
 
-<b>🏷️ Nama:</b> {title}
-<b>⏱️ Durasi:</b> {duration}
-<b>🎧 Atas permintaan</b> {username}
+<b>🏷️ Nama Kontol:</b> {title}
+<b>⏱️ Durasi Kontol:</b> {duration}
+<b>🎧 Atas permintaan sikontol</b> {username}
 """,
                 )
                 return
