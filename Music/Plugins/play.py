@@ -401,14 +401,14 @@ Unban terlebih dahulu untuk menggunakan
 <b>❌ Lagu tidak ditemukan atau anda tidak menulis judul lagu dengan benar
 
 ✅ Contoh Menggunakan Bot
-`/play halu`
+`/play Takut`
 """,
             )
             return
         what = "Query Given"
         await LOG_CHAT(message, what)
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Pencarian**")
+        mystic = await message.reply_text("**🔎 Sabar lgi gw cari tod**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
@@ -471,11 +471,11 @@ Unban terlebih dahulu untuk menggunakan
             caption=f"""
 <b>💡 Trek ditambahkan ke antrian</b>
 
-<b>🏷️ Nama: [{title[:25]}]({link})</b>
-<b>⏱️ Durasi:</b> {duration} \n
-<b>🎧 Atas permintaan: </b>{checking}
+<b>🏷️ Nama Kontol: [{title[:25]}]({link})</b>
+<b>⏱️ Durasi Kontol:</b> {duration} \n
+<b>🎧 Atas permintaan Si kontol: </b>{checking}
 
-<b>#️⃣ Posisi antrian</b> {position}
+<b>#️⃣ Posisi antrian Kontol</b> {position}
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -510,9 +510,9 @@ Unban terlebih dahulu untuk menggunakan
             photo=thumb,
             reply_markup=InlineKeyboardMarkup(buttons),
             caption=f"""
-<b>🏷 Nama:</b> [{title[:25]}]({link})
-<b>⏱️ Durasi:</b> {duration}
-<b>🎧 Atas permintaan:</b> {checking}
+<b>🏷 Nama Kontol:</b> [{title[:25]}]({link})
+<b>⏱️ Durasi Kontol:</b> {duration}
+<b>🎧 Atas permintaan si kontol:</b> {checking}
 """,
         )
         return await mystic.delete()
@@ -547,7 +547,7 @@ async def startyuplay(_, CallbackQuery):
     if smex > DURATION_LIMIT:
         await CallbackQuery.message.reply_text(
             f"""
-**Kesalahan Durasi**
+**Kesalahan Durasi Goblok**
 
 **Durasi yang Diizinkan: {DURATION_LIMIT}**
 **Durasi yang Diteriman:** {duration}
@@ -662,12 +662,12 @@ async def startyuplay(_, CallbackQuery):
             caption=f"""
 <b>💡 Trek ditambahkan ke antrian</b>
 
-<b>🏷 Nama:</b>[{title[:25]}]({url})
-<b>⏱️ Durasi:</b> {duration}
+<b>🏷 Nama Kontol:</b>[{title[:25]}]({url})
+<b>⏱️ Durasi Kontol:</b> {duration}
 <b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
-<b>🎧 Atas permintaan:</b> {checking}
+<b>🎧 Atas permintaan sikontol:</b> {checking}
 
-<b>#️⃣ Posisi antrian</b> {position}
+<b>#️⃣ Posisi antrian kontol</b> {position}
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -691,10 +691,10 @@ async def startyuplay(_, CallbackQuery):
             photo=thumb,
             reply_markup=InlineKeyboardMarkup(buttons),
             caption=f"""
-<b>🏷 Nama:</b> [{title[:25]}]({url})
-<b>⏱️ Durasi:</b> {duration}
+<b>🏷 Nama Kontol:</b> [{title[:25]}]({url})
+<b>⏱️ Durasi Kontol:</b> {duration}
 <b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
-<b>🎧 Atas permintaan:</b> {checking}
+<b>🎧 Atas permintaan sikontol:</b> {checking}
 """,
         )
         os.remove(thumb)
