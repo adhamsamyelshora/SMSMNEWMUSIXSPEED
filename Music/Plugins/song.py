@@ -69,7 +69,7 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
         buttons = gets(videoid, user_id)
         m = await message.reply_text(
             f"""
-<b>🏷️ Judul:</b> [{title[:25]}]({url})
+<b>🏷️ Judul Kontol:</b> [{title[:25]}]({url})
 <b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
 <b>⚡ Didukung</b> [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
@@ -86,7 +86,7 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
 """
             )
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Pencarian**")
+        mystic = await message.reply_text("**🔎 Bentar Tot lgi gw Cari**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
