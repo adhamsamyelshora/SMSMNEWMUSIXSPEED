@@ -109,7 +109,7 @@ async def welcome(_, message: Message):
 @Client.on_message(
     filters.group
     & filters.command(
-        ["bhaks", "help", f"start@{BOT_USERNAME}", f"help@{BOT_USERNAME}"]
+        ["bhaks", "help", f"bhaks@{BOT_USERNAME}", f"help@{BOT_USERNAME}"]
     )
 )
 async def start(_, message: Message):
