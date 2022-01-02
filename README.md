@@ -1,7 +1,7 @@
-<h2 align="centre">Kyy Music Player</h2>
+<h2 align="centre">Kyura Music Player</h2>
 
 <p align="center">
-  <img src="https://telegra.ph/file/37e7781a4a5d5875c8cb3.jpg">
+  <img src="https://telegra.ph/file/e42317e82b1c9e8c60c2a.jpg">
 </p>
 
 <h3>Requirements 📝</h3>
@@ -48,7 +48,7 @@
 ## Heroku Deployment 💜
 The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/muhammadrizky16/DeployMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Kyuraxp/MusicKyura)
 
 
 ## Credits
@@ -95,4 +95,4 @@ YukkiMusicPlayer is a modified version of [Callsmusic](https://github.com/callsm
 > Special thanks to you for using bot
 
 ### Support & Updates 
-<a href="https://t.me/NastySupportt"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/NastyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/KyuraSupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/KyuraProjects"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
