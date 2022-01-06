@@ -23,7 +23,7 @@ def time_to_seconds(time):
 
 
 @Client.on_message(
-    command(["song", f"song@{BOT_USERNAME}", "vsong", f"vsong@{BOT_USERNAME}"])
+    command(["song", "تحميل", f"song@{BOT_USERNAME}", "vsong", f"vsong@{BOT_USERNAME}"])
 )
 async def mpthree(_, message: Message):
     chat_id = message.chat.id
@@ -42,7 +42,7 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
     url = get_url(message)
     if url:
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("Sedang memproses")
+        mystic = await message.reply_text("جاري العالحة")
         ydl_opts = {"format": "bestaudio/best"}
         try:
             results = VideosSearch(query, limit=1)
@@ -55,23 +55,23 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
                 (result["id"])
                 videoid = result["id"]
         except Exception as e:
-            return await mystic.edit_text(f"Soung Not Found.\n**Possible Reason:**{e}")
+            return await mystic.edit_text(f"الصوت غير موجود.\n**أسباب محتملة:**{e}")
         smex = int(time_to_seconds(duration))
         if smex > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**__Duration Error__**\n\n**Allowed Duration: **90 minute(s)\n**Received Duration:** {duration} minute(s)"
+                f"**__خطا في المدة__**\n\n**المدة المسموح بها: **90 minute(s)\n**المدة المستلمة:** {duration} minute(s)"
             )
         if duration == "None":
-            return await mystic.edit_text("Sorry! Live videos are not Supported")
+            return await mystic.edit_text("آسف!  لا يتم دعم مقاطع الفيديو الحية")
         if views == "None":
-            return await mystic.edit_text("Sorry! Live videos are not Supported")
+            return await mystic.edit_text("آسف!  لا يتم دعم مقاطع الفيديو الحية")
         thumb = await down_thumb(thumbnail, user_id)
         buttons = gets(videoid, user_id)
         m = await message.reply_text(
             f"""
-<b>🏷️ Judul Kontol:</b> [{title[:25]}]({url})
+<b>🏷️ الايم:</b> [{title[:25]}]({url})
 <b>💡</b> [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
-<b>⚡ Didukung</b> [{BOT_NAME}](t.me/{BOT_USERNAME})
+<b>⚡ تم العثور بوسطة</b> [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -80,13 +80,13 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
         if len(message.command) < 2:
             await message.reply_text(
                 """
-**Penggunaan:**
+**يستخدم:**
 
-/song atau /vsong [Judul Lagu Atau Youtube Link] - untuk mendownload lagu dan video
+/song و /vsong [عنوان الأغنية أو رابط يوتيوب] - لتنزيل الفديوهات والاغاني
 """
             )
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**🔎 Bentar Tot lgi gw Cari**")
+        mystic = await message.reply_text("**جـاري الـبـحـث انـتـظـر : 🎧**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
@@ -107,7 +107,7 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
             ID5 = result[4]["id"]
         except Exception as e:
             return await mystic.edit_text(
-                f"Lagu Tidak Ditemukan.\\in**Kemungkinan Alasan:** {e}"
+                f"لم يتم العثور على الاغنية.\\in**السبب:** {e}"
             )
         await mystic.delete()
         buttons = search_markup(
@@ -125,7 +125,7 @@ Kembalikan ke Akun Pengguna Dari Hak Admin.
             query,
         )
         hmo = await message.reply_text(
-            f"**✨ Silahkan Pilih Mana Yang Ingin Didownload**\n\n¹ <b>{title1[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n² <b>{title2[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n³ <b>{title3[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁴ <b>{title4[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁵ <b>{title5[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
+            f"**اخـتـار رقـم لـتـحـمـيل الفديو او الاغنيه المطلوبه💕 **\n\n¹ <b>{title1[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n² <b>{title2[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n³ <b>{title3[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁴ <b>{title4[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁵ <b>{title5[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )  
@@ -183,9 +183,9 @@ async def startyuplay(_, CallbackQuery):
         photo=thumb,
         reply_markup=InlineKeyboardMarkup(buttons),
         caption=f"""
-<b>🏷️ Judul:</b> [{title[:25]}]({url})
+<b>🏷️ الاسم:</b> [{title[:25]}]({url})
 ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{id})
-└ ⚡ **Didukung:** [{BOT_NAME}](t.me/{BOT_USERNAME})
+└ ⚡ **تم العثور عليها بوسطة** [{BOT_NAME}](t.me/{BOT_USERNAME})
 """,
     )
     os.remove(thumb)
@@ -245,7 +245,7 @@ async def chonga(_, CallbackQuery):
         ID10 = result[9]["id"]
     except Exception as e:
         return await mystic.edit_text(
-            f"Lagu Tidak Ditemukan.\\in**Kemungkinan Alasan:** {e}"
+            f"لم يتم العثور على الاغنية.\\in**السبب:** {e}"
         )
     if i == 1:
         buttons = search_markup2(
@@ -263,7 +263,7 @@ async def chonga(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"**✨ Silahkan Pilih Mana Yang Ingin Didownload**\n\n⁶ <b>{title6[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID6})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁷ <b>{title7[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID7})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁸ <b>{title8[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID8})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁹ <b>{title9[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID9})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n¹⁰ <b>{title10[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID10})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
+            f"**الراجاء اختيار رقم للتحميل الفديو او الاغنيه**\n\n⁶ <b>{title6[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID6})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁷ <b>{title7[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID7})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁸ <b>{title8[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID8})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁹ <b>{title9[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID9})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n¹⁰ <b>{title10[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID10})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
@@ -284,7 +284,7 @@ async def chonga(_, CallbackQuery):
             query,
         )
         await CallbackQuery.edit_message_text(
-            f"**✨ Silahkan Pilih Mana Yang Ingin Didownload**\n\n¹ <b>{title1[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n² <b>{title2[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n³ <b>{title3[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁴ <b>{title4[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁵ <b>{title5[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
+            f"**اخيار رقم للتحميل الفديو او الاغنيه المطلوبه**\n\n¹ <b>{title1[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n² <b>{title2[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n³ <b>{title3[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁴ <b>{title4[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__\n\n⁵ <b>{title5[:27]}</b>\n  ┗ 💡 <u>__[More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>\n  ┗ ⚡ __Powered by {BOT_NAME}__",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True 
         )  
@@ -388,12 +388,12 @@ def gets(videoid, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="ᴀᴜᴅɪᴏ", callback_data=f"gets audio|{videoid}|{user_id}"
+                text="لتحميل اغنيهة💕", callback_data=f"gets audio|{videoid}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="ᴠɪᴅᴇᴏ", callback_data=f"gets video|{videoid}|{user_id}"
+                text="لتحميل فديو💕", callback_data=f"gets video|{videoid}|{user_id}"
             ),
         ],
-        [InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data=f"close2")],
+        [InlineKeyboardButton(text="الغاء💕", callback_data=f"close2")],
     ]
     return buttons
