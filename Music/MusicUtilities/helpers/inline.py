@@ -11,11 +11,11 @@ from Music.config import GROUP, CHANNEL
 def play_markup(videoid, user_id):
     buttons = [
         [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​​", url=f"https://t.me/{GROUP}"),
-            InlineKeyboardButton(text="ᴍᴇɴᴜ", callback_data=f"other {videoid}|{user_id}"),
+            InlineKeyboardButton(text="جــروب الــداعم : 🎧​​", url=f"https://t.me/{GROUP}"),
+            InlineKeyboardButton(text="للتحكم", callback_data=f"other {videoid}|{user_id}"),
         ],
         [      
-               InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f"close"),
+               InlineKeyboardButton(text="الغاء", callback_data=f"close"),
         ],
     ]
     return buttons
@@ -35,17 +35,17 @@ def others_markup(videoid, user_id):
         ],
         [
             InlineKeyboardButton(
-                text="⇩ ᴜɴᴅᴜʜ ᴀᴜᴅɪᴏ", callback_data=f"gets audio|{videoid}|{user_id}"
+                text="تحميل الاغنيه : 💕 ", callback_data=f"gets audio|{videoid}|{user_id}"
             ),
             InlineKeyboardButton(
-                text="⇩ ᴜɴᴅᴜʜ ᴠɪᴅᴇᴏ", callback_data=f"gets video|{videoid}|{user_id}"
+                text="تحميل الفيديو : 💕 ", callback_data=f"gets video|{videoid}|{user_id}"
             ),
         ],
         [
             InlineKeyboardButton(
                 text="⪻", callback_data=f"goback {videoid}|{user_id}"
             ),
-            InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data=f"close2"),
+            InlineKeyboardButton(text="الغاء", callback_data=f"close2"),
         ],
     ]
     return buttons
@@ -59,7 +59,7 @@ play_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("‣‣I", callback_data="skipvc"),
             InlineKeyboardButton("▢", callback_data="stopvc"),
         ],
-        [InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close")],
+        [InlineKeyboardButton("الغاء", callback_data="close")],
     ]
 )
 
@@ -72,7 +72,7 @@ def audio_markup(videoid, user_id):
             InlineKeyboardButton(text="‣‣I", callback_data=f"skipvc2"),
             InlineKeyboardButton(text="▢", callback_data=f"stopvc2"),
         ],
-        [InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close2")],
+        [InlineKeyboardButton(text="الغاء", callback_data="close2")],
     ]
     return buttons
 
@@ -111,10 +111,10 @@ def search_markup(
                 text="⁵", callback_data=f"Music2 {ID5}|{duration5}|{user_id}"
             ),
         ],
-        [InlineKeyboardButton(text="⪼", callback_data=f"popat 1|{query}|{user_id}")],
+        [InlineKeyboardButton(text="اضغط للحوصول علي قائمة النتائج اخري 💕", callback_data=f"popat 1|{query}|{user_id}")],
         [
             InlineKeyboardButton(
-                text="ᴛᴜᴛᴜᴘ", callback_data=f"ppcl2 smex|{user_id}"
+                text="الغاء", callback_data=f"ppcl2 smex|{user_id}"
             ),
         ],
     ]
@@ -156,17 +156,17 @@ def search_markup2(
             ),
         ],
         [
-            InlineKeyboardButton(text="⪻", callback_data=f"popat 2|{query}|{user_id}"),
+            InlineKeyboardButton(text="اضغط للرجوع الي قائنة نتائج الفائتة :💕 ", callback_data=f"popat 2|{query}|{user_id}"),
         ],
-        [InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data=f"ppcl2 smex|{user_id}")],
+        [InlineKeyboardButton(text="الغاء", callback_data=f"ppcl2 smex|{user_id}")],
     ]
     return buttons
 
 
 def personal_markup(link):
     buttons = [
-        [InlineKeyboardButton(text="ᴛᴏɴᴛᴏɴ ᴅɪ ʏᴏᴜᴛᴜʙᴇ", url=f"{link}")],
-        [InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data=f"close2")],
+        [InlineKeyboardButton(text="شـاهـد عـلـي الـيـوتـيـوب : 💕 ", url=f"{link}")],
+        [InlineKeyboardButton(text="الغاء", callback_data=f"close2")],
     ]
     return buttons
 
@@ -175,10 +175,10 @@ start_keyboard = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                "📚 ᴅᴀꜰᴛᴀʀ ᴘᴇʀɪɴᴛᴀʜ​ 📚", url="https://telegra.ph/ҡʏʏ-ᴇx-12-15"
+                "الاوامـــر مـن هـنـا : 📚", url="https://t.me/SE_MO_1/80"
             )
         ],
-        [InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close2")],
+        [InlineKeyboardButton("الغاء", callback_data="close2")],
     ]
 )
 
@@ -194,14 +194,14 @@ confirm_keyboard = InlineKeyboardMarkup(
 confirm_group_keyboard = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("ʏᴀ", callback_data="cbgroupdel"),
-            InlineKeyboardButton("ᴛɪᴅᴀᴋ", callback_data="close2"),
+            InlineKeyboardButton("اضغط للاكتشاف هنا : 💕", callback_data="cbgroupdel"),
+            InlineKeyboardButton("الغاء", callback_data="close2"),
         ]
     ]
 )
 
 close_keyboard = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data="close2")]]
+    [[InlineKeyboardButton("الغاء", callback_data="close2")]]
 )
 
 play_list_keyboard = InlineKeyboardMarkup( 
@@ -216,7 +216,7 @@ play_list_keyboard = InlineKeyboardMarkup(
                 ],
                 [
                     InlineKeyboardButton(
-                        "ᴛᴜᴛᴜᴘ​", callback_data="close2"
+                        "الغاء​", callback_data="close2"
                     )
                 ]
             ]
@@ -225,13 +225,13 @@ play_list_keyboard = InlineKeyboardMarkup(
 def playlist_markup(user_name, user_id):
     buttons= [
             [
-                InlineKeyboardButton(text=f"ɢʀᴏᴜᴘs", callback_data=f'play_playlist {user_id}|group'),
+                InlineKeyboardButton(text=f"جــروب الـدعــم : 🎧", callback_data=f'play_playlist {user_id}|group'),
             ],
             [
                 InlineKeyboardButton(text=f"{user_name[:8]}", callback_data=f'play_playlist {user_id}|personal'),
             ],
             [
-                InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ​", callback_data="close2")              
+                InlineKeyboardButton(text="الغاء​", callback_data="close2")              
             ],
         ]
     return buttons
@@ -242,7 +242,7 @@ def start_pannel():
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="🔧 sᴇᴛᴛɪɴɢs", callback_data="settingm"
+                    text=" الاعدادات : 🔧", callback_data="settingm"
                 )
             ],
         ]
@@ -251,12 +251,12 @@ def start_pannel():
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="🔧 sᴇᴛᴛɪɴɢs", callback_data="settingm"
+                    text="الاعدادات : 🔧", callback_data="settingm"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    text="✨ sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{GROUP}"
+                    text="جــروب الــداعم : 💗 ", url=f"https://t.me/{GROUP}"
                 ),
             ],
         ]
@@ -265,12 +265,12 @@ def start_pannel():
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="🔧 sᴇᴛᴛɪɴɢs", callback_data="settingm"
+                    text="الاعدادات : 💗 ", callback_data="settingm"
                 )
             ],
             [
                 InlineKeyboardButton(
-                    text="✨ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{GROUP}"
+                    text="جـروب الـداعم : 💗 ", url=f"https://t.me/{GROUP}"
                 ),
             ],
         ]
@@ -279,7 +279,7 @@ def start_pannel():
         buttons = [
             [
                 InlineKeyboardButton(
-                    text="🔧 sᴇᴛᴛɪɴɢs", callback_data="settingm"
+                    text="الاعدادات ", callback_data="settingm"
                 )
             ],
             [
