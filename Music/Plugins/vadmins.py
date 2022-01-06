@@ -65,14 +65,14 @@ async def close(_, query: CallbackQuery):
     await query.message.delete()
 
 
-@app.on_message(command(["vskip"]) & filters.group)
+@app.on_message(command(["vskip", "skip", "تخطي"]) & filters.group)
 @authorized_users_only
 async def skip(client, m: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="ᴍᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="للتحكم", callback_data="cbmenu"),
             ]
         ]
     )
@@ -119,7 +119,7 @@ async def skip(client, m: Message):
             await m.reply(OP)
 
 
-@app.on_message(command(["vstop"]) & filters.group)
+@app.on_message(command(["vstop", "end", "اسكت"]) & filters.group)
 @authorized_users_only
 async def stop(client, m: Message):
     chat_id = m.chat.id
@@ -127,7 +127,7 @@ async def stop(client, m: Message):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await m.reply("✅ **Streaming telah berakhir.**")
+            await m.reply(" **سكت اهو سسلا💕 .**")
         except Exception as e:
             await m.reply(f"**Error:**\n\n`{e}`")
     else:
