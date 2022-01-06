@@ -38,18 +38,18 @@ from pyrogram.types import (
 def start_pannel():
     buttons = [
         [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/kyurasupport"),
-            InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/KyuraProjects"),
+            InlineKeyboardButton(text="جـروب الـدعـم :📚​", url=f"https://t.me/SE_MO_2"),
+            InlineKeyboardButton(text="قـنـاة الـبـوت :💻", url=f"https://t.me/SE_MO_1"),
         ],
         [
-            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ​ 📚", url="https://telegra.ph/ҡʏʏ-ᴇx-12-15"),
+            InlineKeyboardButton("الاوامـــر مـن هـنـا :🔥", url="https://t.me/SE_MO_1/80"),
         ],
         [
-            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://github.com/Kyuraxp/MusicKyura"),
+            InlineKeyboardButton("ˢᴱᴹᴼ ᴱᴸᴷᴮᴱᴿ°", url="https://t.me/S_E_M_O_E_L_K_B_E_R"),
         ],
     ]
     return (
-        "🎛 **{BOT_NAME} Merupakan salah satu dari bot telegram yang bisa memutar musik di grup**",
+        "🎛 **{BOT_NAME} اهلا انا بوت تشغيل موسيقي في المحدثات الصواتية للاستماع بي ابموسيقي🍿**",
         buttons,
     )
 
@@ -58,17 +58,17 @@ pstart_markup = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                "➕ ᴀᴅᴅ ᴍᴇ ʏᴏᴜʀ ᴛᴏ ɢʀᴏᴜᴘ​ ➕", url=f"https://t.me/Kyuraxsbot?startgroup=true"),
+                "➕ اضـفـنــي الـي مـجـمـوعـتك​ ➕", url=f"https://t.me/MIIUSC_8INOITY_BOT?startgroup=true"),
         ],
         [
-            InlineKeyboardButton(text="✨ sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/kyurasupport"),
-            InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/KyuraProjects"),
+            InlineKeyboardButton(text="جــروب الـدعـم :📚", url=f"https://t.me/SE_MO_2"),
+            InlineKeyboardButton("قـنـاة الـبـوت : 💻", url=f"https://t.me/SE_MO_1"),
         ],
         [
-            InlineKeyboardButton("📚 ᴄᴏᴍᴍᴀɴᴅ ​📚", url="https://telegra.ph/ҡʏʏ-ᴇx-12-15"),
+            InlineKeyboardButton("الاوامـر مـن هـنـا : 🎧", url="https://t.me/SE_MO_1/80"),
         ],
         [
-            InlineKeyboardButton("🌐 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🌐", url="https://github.com/Kyuraxp/MusicKyura"),
+            InlineKeyboardButton("ˢᴱᴹᴼ ᴱᴸᴷᴮᴱᴿ°", url="https://t.me/S_E_M_O_E_L_K_B_E_R"),
         ],
     ]
 )
@@ -82,11 +82,11 @@ async def welcome(_, message: Message):
         try:
             if member.id in OWNER:
                 return await message.reply_text(
-                    f"💡 Pemilik Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"انــضــم ص الـبـوت [{member.mention}] الـي هذة الـدردشـة💕."
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"💡 Admin Bot [{member.mention}] baru saja bergabung di grup ini."
+                    f"انـضـم الادمــن [{member.mention}] الـي هـذا الـدردشـة 💕."
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
@@ -94,9 +94,9 @@ async def welcome(_, message: Message):
                 out = start_pannel()
                 await message.reply_text(
                     f"""
-👋 ** Halo senang rasanya bisa bergabung di grup ini**
+👋 ** مـرحبا لـقـد انـضـمـيت الـي الـدردشـة**
 
-💡 **Jangan lupa untuk menjadikan saya sebagai admin di grup ini**
+💡 **لا تـنـسي ان تـقـوم ب تـعـيـنـي كـا مـشـرف **
 """,
                     reply_markup=InlineKeyboardMarkup(out[1]),
                     disable_web_page_preview=True
@@ -109,7 +109,7 @@ async def welcome(_, message: Message):
 @Client.on_message(
     filters.group
     & filters.command(
-        ["bhaks", "help", f"bhaks@{BOT_USERNAME}", f"help@{BOT_USERNAME}"]
+        ["bhaks", "help", "الاوامر", f"bhaks@{BOT_USERNAME}", f"help@{BOT_USERNAME}"]
     )
 )
 async def start(_, message: Message):
@@ -117,10 +117,10 @@ async def start(_, message: Message):
     out = start_pannel()
     await message.reply_text(
         f"""
-Terima kasih telah memasukkan saya di {message.chat.title}.
-Musik itu hidup.
+شكرا لتضمينني في {message.chat.title}.
+الموسيقى حية.
 
-Untuk bantuan silahkan klik tombol dibawah.
+للمساعدة الرجاء الضغط على الزر أدناه.
 """,
         reply_markup=InlineKeyboardMarkup(out[1]),
         disable_web_page_preview=True
@@ -137,11 +137,11 @@ async def play(_, message: Message):
         await app.send_message(
             message.chat.id,
             text=f"""
-**✨ Selamat Datang {rpk}!
+**نــورت يا{rpk}!
 
-💬 [{BOT_NAME}](tg://user?id=2129034376) memungkinkan anda untuk memutar musik pada grup melalui obrolan suara yang baru di Telegram!
+💬 [{BOT_NAME}](tg://user?id=2129034376) انـا بـوت لـتـشـغـيل الـمـوسـيـقـي فـي الـدردشـات الـصـواتـيـة 🍿,
 
-💡 Untuk Mengetahui Semua Perintah Bot Dan Bagaimana Cara Kerja Nya Dengan Menekan Tombol » 📚 ᴄᴏᴍᴍᴀɴᴅ​!**
+💡 لـمـعرفـة الـتـشـغـيـل والـتـحـكـم فـي الـبـوت وتـشـغـيـل الـمـوسـيـقـي تـابـع اسـفـل الـنـص 💕**
 
 """,
             parse_mode="markdown",
@@ -161,18 +161,18 @@ async def play(_, message: Message):
                 x = ytdl.extract_info(query, download=False)
             thumbnail = x["thumbnail"]
             searched_text = f"""
-🔍 **Video Track Information**
+🔍 **مـعـلـومـات الـفـيـديـو**
 
-❇️**Judul:** {x["title"]}
+❇️**الاسـم:** {x["title"]}
 
-⏳ **Durasi:** {round(x["duration"] / 60)} Mins
-👀 **Ditonton:** `{x["view_count"]}`
-👍 **Suka:** `{x["like_count"]}`
-👎 **Tidak suka:** `{x["dislike_count"]}`
-⭐️ **Peringkat Rata-rata:** {x["average_rating"]}
-🎥 **Nama channel:** {x["uploader"]}
-📎 **Channel Link:** [Kunjungi Dari Sini]({x["channel_url"]})
-🔗 **Link:** [Link]({x["webpage_url"]})
+⏳ **الــمــدة:** {round(x["duration"] / 60)} Mins
+👀 **عـدد الـمـشـاهـدة:** `{x["view_count"]}`
+👍 **مـثـل:** `{x["like_count"]}`
+👎 **لا يـعـجـبـنـي:** `{x["dislike_count"]}`
+⭐️ **مـتـواسـط تـقـيـم:** {x["average_rating"]}
+🎥 **اسـم الـقـناة:** {x["uploader"]}
+📎 **رابـط الـقـننـاة:** [Kunjungi Dari Sini]({x["channel_url"]})
+🔗 **الـرابط:** [Link]({x["webpage_url"]})
 """
             link = x["webpage_url"]
             buttons = personal_markup(link)
@@ -187,7 +187,7 @@ async def play(_, message: Message):
             )
         if str(finxx) == "sud":
             sudoers = await get_sudoers()
-            text = "**📝 DAFTAR PENGGUNA SUDO**\n\n"
+            text = "**📝 قـائـمـة مـسـتـخـدم الـسـودو**\n\n"
             for count, user_id in enumerate(sudoers, 1):
                 try:
                     user = await app.get_users(user_id)
@@ -224,7 +224,7 @@ async def okaybhai(_, CallbackQuery):
     await CallbackQuery.answer("Going Back ...")
     out = start_pannel()
     await CallbackQuery.edit_message_text(
-        text=f"Terimakasih telah menambahkan saya di {CallbackQuery.message.chat.title}.\n{BOT_NAME} Telah online.\n\nJika butuh bantuan atau terjadi masalah dengan Bot silahkan bergabung di group atau channel kami.",
+        text=f"شكرا لإضافتي {CallbackQuery.message.chat.title}.\n{BOT_NAME} Telah online.\n\nJika butuh bantuan atau terjadi masalah dengan Bot silahkan bergabung di group atau channel kami.",
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
@@ -264,7 +264,7 @@ async def EVE(_, CallbackQuery):
         )
     else:
         await CallbackQuery.answer(
-            "Commands Mode is Already Set To EVERYONE", show_alert=True
+            "تم بالفعل تعيين وضع الأوامر على الجميع", show_alert=True
         )
 
 @app.on_callback_query(filters.regex("AMS"))
@@ -275,7 +275,7 @@ async def AMS(_, CallbackQuery):
     is_non_admin = await is_nonadmin_chat(chat_id)
     if not is_non_admin:
         await CallbackQuery.answer(
-            "Commands Mode is Already Set To ADMINS ONLY", show_alert=True
+            "تم بالفعل تعيين وضع الأوامر على الادمن فقط", show_alert=True
         )
     else:
         await CallbackQuery.answer("Changes Saved")
@@ -458,9 +458,9 @@ async def start_markup_check(_, CallbackQuery):
         }
         try:
             await pytgcalls.change_volume_call(c_id, volume)
-            await CallbackQuery.answer("Setting Audio Changes ...")
+            await CallbackQuery.answer("إعدادات تغييرات الصوت ...")
         except:
-            return await CallbackQuery.answer("No active Group Call...")
+            return await CallbackQuery.answer("لا توجد مكالمة جماعية نشطة...")
         await save_assistant(c_id, "assistant", assis)
         text, buttons = custommarkup()
         await CallbackQuery.edit_message_text(
@@ -480,9 +480,9 @@ async def start_markup_check(_, CallbackQuery):
         }
         try:
             await pytgcalls.change_volume_call(c_id, volume)
-            await CallbackQuery.answer("Setting Audio Changes ...")
+            await CallbackQuery.answer("إعدادات تغييرات الصوت ...")
         except:
-            return await CallbackQuery.answer("No active Group Call...")
+            return await CallbackQuery.answer("لا توجد مكالمة جماعية نشطة...")
         await save_assistant(c_id, "assistant", assis)
         text, buttons = custommarkup()
         await CallbackQuery.edit_message_text(
@@ -545,9 +545,9 @@ async def start_markup_check(_, CallbackQuery):
         else:
             j = 0
             await CallbackQuery.edit_message_text(
-                "Fetching Authorised Users... Please Wait"
+                "إحضار المستخدمين المصرح لهم ... الرجاء الانتظار"
             )
-            msg = f"**Authorised Users List[AUL]:**\n\n"
+            msg = f"**قائمة المستخدمين المعتمدين[AUL]:**\n\n"
             for note in _playlist:
                 _note = await get_authuser(
                     CallbackQuery.message.chat.id, note
@@ -563,7 +563,7 @@ async def start_markup_check(_, CallbackQuery):
                 except Exception:
                     continue
                 msg += f"{j}➤ {user}[`{user_id}`]\n"
-                msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
+                msg += f"    ┗ قـام بـي الاضـافة:- {admin_name}[`{admin_id}`]\n\n"
             await CallbackQuery.edit_message_text(
                 msg, reply_markup=InlineKeyboardMarkup(buttons)
             )
