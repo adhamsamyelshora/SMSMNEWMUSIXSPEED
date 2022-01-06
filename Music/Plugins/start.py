@@ -249,7 +249,7 @@ async def settingm(_, CallbackQuery):
         reply_markup=InlineKeyboardMarkup(buttons),
     )
 
-@app.on_callback_query(filters.regex(["EVE", "رفع الجميع"]))
+@app.on_callback_query(filters.regex("EVE"))
 async def EVE(_, CallbackQuery):
     checking = CallbackQuery.from_user.username
     text, buttons = usermarkup()
@@ -267,7 +267,7 @@ async def EVE(_, CallbackQuery):
             "تم بالفعل تعيين وضع الأوامر على الجميع", show_alert=True
         )
 
-@app.on_callback_query(filters.regex(["AMS", "رفع الادمنيه"]))
+@app.on_callback_query(filters.regex("AMS"))
 async def AMS(_, CallbackQuery):
     checking = CallbackQuery.from_user.username
     text, buttons = usermarkup()
