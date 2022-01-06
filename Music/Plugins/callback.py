@@ -111,7 +111,7 @@ Kemungkinan alasannya bisa** :{e}
     await CallbackQuery.answer()
 
 
-@Client.on_callback_query(filters.regex(["pausevc", "انتظار"]))
+@Client.on_callback_query(filters.regex("pausevc"))
 async def pausevc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -142,7 +142,7 @@ async def pausevc(_, CallbackQuery):
         await CallbackQuery.answer(f"لا شيء يتم تشغيله في الموسيقى!", show_alert=True)
 
 
-@Client.on_callback_query(filters.regex(["resumevc", "استمرار"]))
+@Client.on_callback_query(filters.regex("resumevc"))
 async def resumevc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
