@@ -97,7 +97,7 @@ async def closesmex(_, CallbackQuery):
     except Exception as e:
         await CallbackQuery.message.edit(
             f"""
-Terjadi kesalahan
+ kesalahan
 Kemungkinan alasannya bisa** :{e}
 """
         )
@@ -111,7 +111,7 @@ Kemungkinan alasannya bisa** :{e}
     await CallbackQuery.answer()
 
 
-@Client.on_callback_query(filters.regex("pausevc"))
+@Client.on_callback_query(filters.regex(["pausevc", "انتظار"]))
 async def pausevc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -132,17 +132,17 @@ async def pausevc(_, CallbackQuery):
             user_name = CallbackQuery.from_user.first_name
             rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
             await CallbackQuery.message.reply(
-                f"🎧 Lagu Dijeda oleh {rpk}!", reply_markup=play_keyboard
+                f"🎧 تم إيقاف الأغنية مؤقتًا {rpk}!", reply_markup=play_keyboard
             )
             await CallbackQuery.message.delete()
         else:
-            await CallbackQuery.answer(f"Tidak ada yang diputar!", show_alert=True)
+            await CallbackQuery.answer(f"ليس يوجد موسيقي تعمل!", show_alert=True)
             return
     else:
-        await CallbackQuery.answer(f"Tidak ada yang diputar di Musik!", show_alert=True)
+        await CallbackQuery.answer(f"لا شيء يتم تشغيله في الموسيقى!", show_alert=True)
 
 
-@Client.on_callback_query(filters.regex("resumevc"))
+@Client.on_callback_query(filters.regex(["resumevc", "استمرار"]))
 async def resumevc(_, CallbackQuery):
     a = await app.get_chat_member(
         CallbackQuery.message.chat.id, CallbackQuery.from_user.id
@@ -150,9 +150,9 @@ async def resumevc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
+احتاج صلاحية.
 
-• ❌ MENGELOLA OBROLAN SUARA
+• ❌ إدارة المحادثات الصوتية
 """,
             show_alert=True,
         )
@@ -161,7 +161,7 @@ Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
     if await is_active_chat(chat_id):
         if await is_music_playing(chat_id):
             await CallbackQuery.answer(
-                "Saya tidak berpikir jika ada sesuatu yang dijeda di obrolan suara",
+                "لا أعتقد إذا تم إيقاف شيء ما مؤقتًا في الدردشة الصوتية",
                 show_alert=True,
             )
             return
@@ -173,7 +173,7 @@ Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini.
             user_name = CallbackQuery.from_user.first_name
             rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
             await CallbackQuery.message.reply(
-                f"🎧 Lagu Dilanjutkan oleh {rpk}!", reply_markup=play_keyboard
+                f"🎧 تم التشغيل يا{rpk}!", reply_markup=play_keyboard
             )
             await CallbackQuery.message.delete()
     else:
@@ -188,9 +188,9 @@ async def skipvc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini
+احتاج صلاحية
 
-• ❌ MENGELOLA OBROLAN SUARA
+• ❌ إدارة المحادثات الصوتية
 """,
             show_alert=True,
         )
@@ -208,11 +208,11 @@ Anda tidak memiliki izin yang diperlukan untuk melakukan tindakan ini
             await CallbackQuery.answer()
             await CallbackQuery.message.reply(
                 f"""
-**Tombol Lewati Digunakan Oleh** {rpk}
+**زر التخطي المستخدم من قبل** {rpk}
 
-Tidak ada lagi lagu di Antrian
+لا مزيد من الأغاني في قائمة الانتظار
 
-Meninggalkan Obrolan Suara
+تم نزول المساعد
 """
             )
             await music.pytgcalls.leave_group_call(chat_id)
@@ -227,9 +227,9 @@ Meninggalkan Obrolan Suara
             if str(finxx) != "raw":
                 mystic = await CallbackQuery.message.reply(
                     """
-Musik sedang diputar Daftar Putar....
+يتم تشغيل الموسيقى في قائمة التشغيل ....
 
-Mengunduh Musik Berikutnya Dari Daftar Putar....
+تنزيل الموسيقى التالية من قائمة التشغيل....
 """
                 )
                 url = f"https://www.youtube.com/watch?v={afk}"
@@ -239,7 +239,7 @@ Mengunduh Musik Berikutnya Dari Daftar Putar....
                 except Exception as e:
                     return await mystic.edit(
                         f"""
-Gagal mengunduh video ini.
+فشل تحميل هذا الفيديو.
 
 **Alasan**:{e}
 """
@@ -329,11 +329,11 @@ Gagal mengunduh video ini.
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
                         f"""
-<b>⏭️ Melewati lagu permintaa {rpk}</b>
+<b>⏭️ تخطي طلب الأغنية {rpk}</b>
 
-<b>🏷 Nama: </b>[{title[:25]}]({url})
-<b>⏱️ Durasi: :</b> {duration}
-<b>🎧 Atas permintaan:</b> {semx.mention}
+<b>🏷 الاسم: </b>[{title[:25]}]({url})
+<b>⏱️ المده: :</b> {duration}
+<b>🎧 مطلوبه من:</b> {semx.mention}
 """
                     ),
                 )
@@ -374,11 +374,11 @@ Gagal mengunduh video ini.
                     photo=f"downloads/{_chat_}final.png",
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=f"""
-<b>⏭️ Melewati lagu permintaa: {rpk}</b>
+<b>⏭️ تخطي طلب الأغنية: {rpk}</b>
 
-<b>🏷️ Nama:</b> {title}
-<b>⌚ Durasi</b> {duration}
-<b>🎧 Atas permintaan:</b> {username}
+<b>🏷️ الاسم:</b> {title}
+<b>⌚ الوقت</b> {duration}
+<b>🎧 مطلوبه من:</b> {username}
 """,
                 )
                 return
@@ -410,9 +410,9 @@ async def stopvc(_, CallbackQuery):
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
         rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-        await CallbackQuery.message.reply(f"🎧 Lagu Dihentikan oleh {rpk}!")
+        await CallbackQuery.message.reply(f"🎧 تم ايقاف الايغنيه يا {rpk}!")
     else:
-        await CallbackQuery.answer(f"Tidak ada yang diputar!", show_alert=True)
+        await CallbackQuery.answer(f"لاث يوجد شئ قيد التشغيل!", show_alert=True)
 
         
 @Client.on_callback_query(filters.regex("play_playlist"))
@@ -441,7 +441,7 @@ async def play_playlist(_,CallbackQuery):
 Group :- {chat_title}
 By :- {Name}
 
-Personal Playlist Playing."""
+تشغيل قائمة التشغيل الشخصية."""
             await ASS_ACC.send_message(LOG_GROUP_ID, f"{logger_text}", disable_web_page_preview=True)
             mystic = await CallbackQuery.message.reply_text(f"Starting {Name}'s Personal Playlist.\n\nRequested By:- {CallbackQuery.from_user.first_name}")   
             checking = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
@@ -559,7 +559,7 @@ Personal Playlist Playing."""
                     a1,
                 ],
                 [
-                    InlineKeyboardButton(text="🗑 Close Menu​", callback_data=f'close2')
+                    InlineKeyboardButton(text="🗑 الغاء", callback_data=f'close2')
                 ]    
             ]
         )
@@ -706,7 +706,7 @@ Group Playlist Playing."""
                     a1,
                 ],
                 [
-                    InlineKeyboardButton(text="🗑 Close Menu​", callback_data=f'close2')
+                    InlineKeyboardButton(text="🗑 الغاء​", callback_data=f'close2')
                 ]    
             ]
         )
@@ -850,7 +850,7 @@ async def P_list(_,CallbackQuery):
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
         a2 = InlineKeyboardButton(text=f"Play {user_name[:17]}'s Playlist", callback_data=f'play_playlist {user_id}|personal')
-        a3 = InlineKeyboardButton(text=f"📨 Check Playlist", url=urlxp)
+        a3 = InlineKeyboardButton(text=f"📨 تحقق من قائمة التشغيل", url=urlxp)
         key = InlineKeyboardMarkup(
             [
                 [
@@ -904,8 +904,8 @@ async def G_list(_,CallbackQuery):
         urlxp = link + "/index.txt"
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
-        a1 = InlineKeyboardButton(text=f"Play Group's Playlist", callback_data=f'play_playlist {user_id}|group')
-        a3 = InlineKeyboardButton(text=f"📨 Check Playlist", url=urlxp)
+        a1 = InlineKeyboardButton(text=f"قائمة تشغيل المجموعة", callback_data=f'play_playlist {user_id}|group')
+        a3 = InlineKeyboardButton(text=f"📨 تحقق من قائمة التشغي", url=urlxp)
         key = InlineKeyboardMarkup(
             [
                 [
