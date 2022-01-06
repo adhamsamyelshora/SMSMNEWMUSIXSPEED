@@ -112,12 +112,12 @@ async def pause_cmd(_, message):
     checking = message.from_user.mention
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")
+        return await message.reply_text("لا أعتقد ما إذا كان هناك شيء ما يتم تشغيله في الدردشة الصوتية")
     elif not await is_music_playing(message.chat.id):
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")   
+        return await message.reply_text("لا أعتقد ما إذا كان هناك شيء ما يتم تشغيله في الدردشة الصوتية")   
     await music_off(chat_id)
     await music.pytgcalls.pause_stream(chat_id)
-    await message.reply_text(f"🎧 Obrolan Suara Dijeda oleh {checking}!")
+    await message.reply_text(f"🎧 تم ايقاف الاغنيه موقتا يا {checking}!")
     
 @app.on_message(filters.command(["resume", f"resume@{BOT_USERNAME}", "rs"]))
 async def stop_cmd(_, message): 
@@ -136,9 +136,9 @@ async def stop_cmd(_, message):
     else:
         await music_on(chat_id)
         await music.pytgcalls.resume_stream(chat_id)
-        await message.reply_text(f"**🎧 Obrolan Suara Dilanjutkan Oleh {checking}!**")
+        await message.reply_text(f"**تم تشغيل الاغنيه من جديد يا💕  {checking}!**")
 
-@app.on_message(filters.command(["end", f"end@{BOT_USERNAME}", "e"]))
+@app.on_message(filters.command(["end", " اسكت", f"end@{BOT_USERNAME}", "e"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -155,11 +155,11 @@ async def stop_cmd(_, message):
             pass                        
         await remove_active_chat(chat_id)
         await music.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text(f"**🎧 Obrolan Suara Berakhir/Dihentikan {checking}!**") 
+        await message.reply_text(f"**🎧 تم ايقاف الاغنيه يا  {checking}!**") 
     else:
-        return await message.reply_text("Saya tidak berpikir jika ada sesuatu yang diputar di obrolan suara")
+        return await message.reply_text("لا أعتقد ما إذا كان هناك شيء ما يتم تشغيله في الدردشة الصوتية")
     
-@app.on_message(filters.command(["skip", f"skip@{BOT_USERNAME}", "sk"]))
+@app.on_message(filters.command(["skip", "تخطي", f"skip@{BOT_USERNAME}", "sk"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -171,7 +171,7 @@ async def stop_cmd(_, message):
     chat_id = message.chat.id
     chat_title = message.chat.title
     if not await is_active_chat(chat_id):
-        await message.reply_text("Tidak ada music yang diputar")
+        await message.reply_text("لا يوجد شيئ شغال💕 ")
     else:
         task_done(chat_id)
         if is_empty(chat_id):
@@ -296,19 +296,19 @@ async def stop_cmd(_, message):
                 photo=f"downloads/{_chat_}final.png",
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=f"""
-<b>⏭️ Melewati lagu</b>
+<b>⏭️ تخطي الاغنيه</b>
 
-<b>🏷️ Nama Kontol:</b> {title}
-<b>⏱️ Durasi Kontol:</b> {duration}
-<b>🎧 Atas permintaan sikontol</b> {username}
+<b>🏷️ اسم الاغنيه:</b> {title}
+<b>⏱️ المدة:</b> {duration}
+<b>🎧 مطلوبه من</b> {username}
 """,
                 )
                 return
 
-@app.on_message(filters.command(["reload", f"reload@{BOT_USERNAME}"]))
+@app.on_message(filters.command(["reload", "رستارت", f"reload@{BOT_USERNAME}"]))
 async def reload(_, message):
     chat_id = message.chat.id
     await _.send_message(
     chat_id,
-    "✅ Bot dimulai ulang **berhasil**\n\n✅ **Admin** daftar telah **diperbarui**"
+    "✅ تمت إعادة تشغيل البوت **بنجاح**\n\n✅ **تم** تحديث قائمة المسۊولين **💕 **"
 )
