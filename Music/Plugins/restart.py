@@ -8,7 +8,7 @@ from Music.MusicUtilities.database.queue import get_active_chats, remove_active_
 from pyrogram import filters
 
 
-@app.on_message(filters.command("restart") & filters.user(SUDOERS))
+@app.on_message(filters.command(["restart", "اعاده تشغيل"]) & filters.user(SUDOERS))
 async def theme_func(_, message):
     A = "downloads"
     B = "raw_files"
@@ -27,7 +27,7 @@ async def theme_func(_, message):
         try:
             await app.send_message(
                 x,
-                "Music has just restarted herself. Sorry for the issues.\n\nStart playing after 10-15 seconds again.",
+                "يتم اعادة تشغيل البوت.\n\nانتظر 1دقيقه لاعادة التشغيل.",
             )
         except Exception:
             pass
@@ -43,7 +43,7 @@ async def theme_func(_, message):
             await remove_active_chat(served_chat)
         except Exception as e:
             await message.reply_text(f"{e}")
-    x = await message.reply_text(f"__Restarting Music!__")
+    x = await message.reply_text(f"__اعاده تشغيل البوت الان 💕 !__")
     await start_restart_stage(x.chat.id, x.message_id)
     os.execvp(
         f"python{str(pyver.split(' ')[0])[:3]}",
