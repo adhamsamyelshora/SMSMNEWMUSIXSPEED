@@ -86,7 +86,7 @@ async def welcome(_, message: Message):
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"انـضـم الادمــن [{member.mention}] الـي هـذا الـدردشـة 💕."
+                    f"انـضـم الـحـسـاب الـمـسـاعـد [{member.mention}] الـي هـذا الـدردشـة 💕."
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
@@ -196,7 +196,7 @@ async def play(_, message: Message):
                     continue
                 text += f"- {user}\n"
             if not text:
-                await message.reply_text("Tidak Ada Pengguna Sudo")
+                await message.reply_text("لا يوجد مستخدم سودو")
             else:
                 await message.reply_text(text)
 
@@ -216,7 +216,7 @@ async def settings(_, message: Message):
     text, buttons = setting_markup()
     await asyncio.gather(
         message.delete(),
-        message.reply_text(f"{text}\n\n**Group:** {message.chat.title}\n**Group ID:** {message.chat.id}\n**Volume Level:** {volume}%", reply_markup=InlineKeyboardMarkup(buttons)),
+        message.reply_text(f"{text}\n\n**الجروب:** {message.chat.title}\n**ايدي الجروب:** {message.chat.id}\n**حجم الصوت:** {volume}%", reply_markup=InlineKeyboardMarkup(buttons)),
     )
 
 @app.on_callback_query(filters.regex("okaybhai"))
@@ -224,7 +224,7 @@ async def okaybhai(_, CallbackQuery):
     await CallbackQuery.answer("Going Back ...")
     out = start_pannel()
     await CallbackQuery.edit_message_text(
-        text=f"شكرا لإضافتي {CallbackQuery.message.chat.title}.\n{BOT_NAME} Telah online.\n\nJika butuh bantuan atau terjadi masalah dengan Bot silahkan bergabung di group atau channel kami.",
+        text=f"شكرا لإضافتي {CallbackQuery.message.chat.title}.\n{BOT_NAME} متصل بالفعل.\n\nإذا كنت بحاجة إلى مساعدة أو كانت هناك مشكلة في الروبوت ، فيرجى الانضمام إلى مجموعتنا أو قناتنا.",
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
 
@@ -249,7 +249,7 @@ async def settingm(_, CallbackQuery):
         reply_markup=InlineKeyboardMarkup(buttons),
     )
 
-@app.on_callback_query(filters.regex("EVE"))
+@app.on_callback_query(filters.regex(["EVE", "رفع الجميع"]))
 async def EVE(_, CallbackQuery):
     checking = CallbackQuery.from_user.username
     text, buttons = usermarkup()
@@ -267,7 +267,7 @@ async def EVE(_, CallbackQuery):
             "تم بالفعل تعيين وضع الأوامر على الجميع", show_alert=True
         )
 
-@app.on_callback_query(filters.regex("AMS"))
+@app.on_callback_query(filters.regex(["AMS", "رفع الادمنيه"]))
 async def AMS(_, CallbackQuery):
     checking = CallbackQuery.from_user.username
     text, buttons = usermarkup()
@@ -281,7 +281,7 @@ async def AMS(_, CallbackQuery):
         await CallbackQuery.answer("Changes Saved")
         await remove_nonadmin_chat(chat_id)
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\nSet Commands Mode to **Admins**\n\nNow only Admins present in this group can skip, pause, resume, stop musics.\n\nChanges Done By @{checking}",
+            text=f"{text}\n\nاضبط وضع الأوامر على **Admins**\n\nn الآن يمكن للمشرفين الموجودين في هذه المجموعة فقط تخطي الموسيقى وإيقافها مؤقتًا واستئنافها وإيقافها.\n\nتـم الـبـرمـمجـة بـوسـطـة @{checking}",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -316,7 +316,7 @@ async def start_markup_check(_, CallbackQuery):
         else:
             current = "Everyone"
         await CallbackQuery.edit_message_text(
-            text=f"{text}\n\n**Group:** {c_title}\n\nCurrently Who Can Use {BOT_NAME}:- **{current}**\n\n**⁉️ What is This?**\n\n**👥 Everyone :-**Anyone can use {BOT_NAME}'s commands(skip, pause, resume etc) present in this group.\n\n**🙍 Admin Only :-**  Only the admins and authorized users can use all commands of {BOT_NAME}.",
+            text=f"{text}\n\n**Group:** {c_title}\n\nحاليًا من يمكنه الاستخدام {BOT_NAME}:- **{current}**\n\n**⁉️ ما هذا?**\n\n**👥 الجميع :-**يمكن لأي شخص استخدامها {BOT_NAME}'أوامر s (تخطي ، إيقاف مؤقت ، استئناف ، إلخ) الموجودة في هذه المجموعة.\n\n**🙍 لادمن فقط :-** يمكن فقط للمسؤولين والمستخدمين المعتمدين استخدام جميع أوامر  {BOT_NAME}.",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     if command == "Dashboard":
