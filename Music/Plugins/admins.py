@@ -138,7 +138,7 @@ async def stop_cmd(_, message):
         await music.pytgcalls.resume_stream(chat_id)
         await message.reply_text(f"**تم تشغيل الاغنيه من جديد يا💕  {checking}!**")
 
-@app.on_message(filters.command(["end", " اسكت", f"end@{BOT_USERNAME}", "e"]))
+@app.on_message(filters.command(["/end", f"/end@{BOT_USERNAME}", "اسكت", "e"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -159,7 +159,7 @@ async def stop_cmd(_, message):
     else:
         return await message.reply_text("لا أعتقد ما إذا كان هناك شيء ما يتم تشغيله في الدردشة الصوتية")
     
-@app.on_message(filters.command(["skip", "تخطي", f"skip@{BOT_USERNAME}", "sk"]))
+@app.on_message(filters.command(["/skip", "تخطي", f"/skip@{BOT_USERNAME}", "sk"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
