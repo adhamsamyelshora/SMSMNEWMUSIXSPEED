@@ -23,15 +23,14 @@ def time_to_seconds(time):
 
 
 @Client.on_message(
-    command(["song", "تحميل", f"song@{BOT_USERNAME}", "vsong", f"vsong@{BOT_USERNAME}"])
+    command(["song", "تحميل", "تنزيل", f"song@{BOT_USERNAME}", "vsong", f"vsong@{BOT_USERNAME}"])
 )
 async def mpthree(_, message: Message):
     chat_id = message.chat.id
     if message.sender_chat:
         return await message.reply_text(
             """
-Anda adalah Admin Anonim!
-Kembalikan ke Akun Pengguna Dari Hak Admin.
+لاسسف انت لست ادمن قوم بمرساله المالك ليعطيك ادمن.
 """
         )
     user_id = message.from_user.id
@@ -160,7 +159,7 @@ async def startyuplay(_, CallbackQuery):
     smex = int(time_to_seconds(duration))
     if smex > DURATION_LIMIT:
         await CallbackQuery.message.reply_text(
-            f"**__Duration Error__**\n\n**Allowed Duration: **90 minute(s)\n**Received Duration:** {duration} minute(s)"
+            f"**__خطا في المدة__**\n\n**المدة المطلوبه: **90 minute(s)\n**المده المستلمه:** {duration} minute(s)"
         )
         return
     try:
@@ -172,7 +171,7 @@ async def startyuplay(_, CallbackQuery):
         )
     title = x["title"]
     await CallbackQuery.answer(
-        f"Selected {title[:20]}.... \nProcessing..", show_alert=True
+        f"Selected {title[:20]}.... \nالمعالجه..", show_alert=True
     )
     thumbnail = x["thumbnail"]
     (x["id"])
@@ -202,11 +201,11 @@ async def chonga(_, CallbackQuery):
         id, query, user_id = callback_request.split("|")
     except Exception as e:
         return await CallbackQuery.message.edit(
-            f"Error Occured\n**Possible reason could be**:{e}"
+            f"حدث خطا\n**السسب المحتمل**:{e}"
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song", show_alert=True
+            "هذا ليست لك اتحكم في المطلوب لك وليس لغيرك", show_alert=True
         )
     i = int(id)
     query = str(query)
