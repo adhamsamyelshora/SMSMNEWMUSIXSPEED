@@ -10,13 +10,13 @@ from Music.MusicUtilities.database.changers import (alpha_to_int, int_to_alpha,
                                       time_to_seconds)
 
 
-@app.on_message(filters.command("auth") & filters.group)
+@app.on_message(filters.command(["auth", "رفع رتبه"]) & filters.group)
 @AdminActual
 async def auth(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "Reply to a user's message or give username/user_id."
+                " لرفع رتبه الرد على رسالة المستخدم أو إعطاء اسم المستخدم."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -33,7 +33,7 @@ async def auth(_, message: Message):
             count += 1
         if int(count) == 20:
             return await message.reply_text(
-                "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
+                "يمكنك رفع رتبه لي 20 من الاشخاص فقط وليس اكثر (AUL)"
             )
         if token not in _check:
             assis = {
@@ -44,11 +44,11 @@ async def auth(_, message: Message):
             }
             await save_authuser(message.chat.id, token, assis)
             await message.reply_text(
-                f"Added to Authorised Users List of this group."
+                f"تم رفعه رتبه للتحكم،❤️."
             )
             return
         else:
-            await message.reply_text(f"Already in the Authorised Users List.")
+            await message.reply_text(f"بالفعل في قائمة المستخدمين المعتمدين.")
         return
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
@@ -61,7 +61,7 @@ async def auth(_, message: Message):
         count += 1
     if int(count) == 20:
         return await message.reply_text(
-            "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
+            "يمكن أن يكون لديك 20 مستخدمًا فقط في قائمة المستخدمين المصرح لهم في مجموعاتك (AUL)"
         )
     if token not in _check:
         assis = {
@@ -72,20 +72,20 @@ async def auth(_, message: Message):
         }
         await save_authuser(message.chat.id, token, assis)
         await message.reply_text(
-            f"Added to Authorised Users List of this group."
+            f"تمت الإضافة إلى قائمة المستخدمين المعتمدين لهذه المجموعة."
         )
         return
     else:
-        await message.reply_text(f"Already in the Authorised Users List.")
+        await message.reply_text(f"بالفعل في قائمة المستخدمين المعتمدين.")
 
 
-@app.on_message(filters.command("unauth") & filters.group)
+@app.on_message(filters.command(["unauth", "تنزيل رتبه"]) & filters.group)
 @AdminActual
 async def whitelist_chat_func(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "Reply to a user's message or give username/user_id."
+                "الرد على رسالة المستخدم أو إعطاء اسم المستخدم او ايدي المستخدم لرفع المستخدم رتبه في البوت"
             )
             return
         user = message.text.split(None, 1)[1]
@@ -96,7 +96,7 @@ async def whitelist_chat_func(_, message: Message):
         deleted = await delete_authuser(message.chat.id, token)
         if deleted:
             return await message.reply_text(
-                f"Removed from Authorised Users List of this Group."
+                f"تمت إزالته من قائمة المستخدمين المعتمدين لهذه المجموعة ولم يعد يمتلك رتبه في البوت"
             )
         else:
             return await message.reply_text(f"Not an Authorised User.")
@@ -105,10 +105,10 @@ async def whitelist_chat_func(_, message: Message):
     deleted = await delete_authuser(message.chat.id, token)
     if deleted:
         return await message.reply_text(
-            f"Removed from Authorised Users List of this Group."
+            f"تمت إزالته من قائمة المستخدمين المعتمدين لهذه المجموعة."
         )
     else:
-        return await message.reply_text(f"Not an Authorised User.")
+        return await message.reply_text(f"لست مستخدمه مصرحا.")
 
 
 @app.on_message(filters.command("authusers") & filters.group)
