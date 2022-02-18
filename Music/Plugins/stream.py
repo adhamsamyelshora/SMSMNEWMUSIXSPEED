@@ -59,7 +59,7 @@ async def ytdl(link):
 
 
 
-@app.on_message(command(["vplay", "فيديو"]) & filters.group)
+@app.on_message(command(["vplay", "تشغيل فيديو"]) & filters.group)
 async def vplay(c: Client, message: Message):
     replied = message.reply_to_message
     chat_id = message.chat.id
