@@ -21,13 +21,13 @@ Disk: {disk}%
     return stats
 
 
-@app.on_message(filters.command(["ping", " السرعه"]))
+@app.on_message(filters.command(["ping", "بنج"]))
 async def ping(_, message):
     uptime = await bot_sys_stats()
     start = datetime.now()
-    response = await message.reply_text("ping...")
+    response = await message.reply_text("جاري اظهار البنج")
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     await response.edit(
-        f"**Pong !!**\n`💫{resp} ms`\n\n<b><u>إحصائيات نظام الموسيقى:</u></b>{uptime}"
+        f"**بنج **\n`💫{resp} ms`\n\n<b><u>إحصائيات نظام الموسيقى:</u></b>{uptime}"
     )
