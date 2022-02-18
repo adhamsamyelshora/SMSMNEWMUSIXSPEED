@@ -38,8 +38,8 @@ from pyrogram.types import (
 def start_pannel():
     buttons = [
         [
-            InlineKeyboardButton(text="جـروب الـدعـم :📚​", url=f"https://t.me/SE_MO_2"),
-            InlineKeyboardButton(text="قـنـاة الـبـوت :💻", url=f"https://t.me/SE_MO_1"),
+            InlineKeyboardButton(text="جـروب الـدعـم :📚​", url=f"https://t.me/SE_MO5"),
+            InlineKeyboardButton(text="قـنـاة الـبـوت :💻", url=f"https://t.me/semo_elsultan2"),
         ],
         [
             InlineKeyboardButton("الاوامـــر مـن هـنـا :🔥", url="https://t.me/SE_MO_1/80"),
@@ -61,8 +61,8 @@ pstart_markup = InlineKeyboardMarkup(
                 "➕ اضـفـنــي الـي مـجـمـوعـتك​ ➕", url=f"https://t.me/MIIUSC_8INOITY_BOT?startgroup=true"),
         ],
         [
-            InlineKeyboardButton(text="جــروب الـدعـم :📚", url=f"https://t.me/SE_MO_2"),
-            InlineKeyboardButton("قـنـاة الـبـوت : 💻", url=f"https://t.me/SE_MO_1"),
+            InlineKeyboardButton(text="جــروب الـدعـم :📚", url=f"https://t.me/SE_MO5"),
+            InlineKeyboardButton("قـنـاة الـبـوت : 💻", url=f"https://t.me/semo_elsultan2"),
         ],
         [
             InlineKeyboardButton("الاوامـر مـن هـنـا : 🎧", url="https://t.me/SE_MO_1/80"),
