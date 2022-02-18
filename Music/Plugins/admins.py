@@ -101,7 +101,7 @@ async def stop_cmd(_, message):
         pass   
     await message.reply_text("Menghapus Databae, Antrian, Log, File Mentah, Unduhan.")
     
-@app.on_message(filters.command(["pause", f"pause@{BOT_USERNAME}", "ps"]))
+@app.on_message(filters.command(["pause", "ايقاف مۊقت" f"pause@{BOT_USERNAME}", "ps"]))
 async def pause_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -119,7 +119,7 @@ async def pause_cmd(_, message):
     await music.pytgcalls.pause_stream(chat_id)
     await message.reply_text(f"🎧 تم ايقاف الاغنيه موقتا يا {checking}!")
     
-@app.on_message(filters.command(["resume", f"resume@{BOT_USERNAME}", "rs"]))
+@app.on_message(filters.command(["resume", "استمرار" f"resume@{BOT_USERNAME}", "rs"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -138,7 +138,7 @@ async def stop_cmd(_, message):
         await music.pytgcalls.resume_stream(chat_id)
         await message.reply_text(f"**تم تشغيل الاغنيه من جديد يا💕  {checking}!**")
 
-@app.on_message(filters.command(["end", "اسكت" f"end@{BOT_USERNAME}", "e"]))
+@app.on_message(filters.command(["end", "اسكت", "ايقاف" f"end@{BOT_USERNAME}", "e"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -159,7 +159,7 @@ async def stop_cmd(_, message):
     else:
         return await message.reply_text("لا أعتقد ما إذا كان هناك شيء ما يتم تشغيله في الدردشة الصوتية")
     
-@app.on_message(filters.command(["/skip", "تخطي", f"/skip@{BOT_USERNAME}", "sk"]))
+@app.on_message(filters.command(["skip", "تخطي", f"/skip@{BOT_USERNAME}", "sk"]))
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("Kamu adalah __Admin Anonim__!\nKembalikan ke Akun Pengguna.") 
@@ -305,7 +305,7 @@ async def stop_cmd(_, message):
                 )
                 return
 
-@app.on_message(filters.command(["reload", "رستارت", f"reload@{BOT_USERNAME}"]))
+@app.on_message(filters.command(["reload", "تحديث" f"reload@{BOT_USERNAME}"]))
 async def reload(_, message):
     chat_id = message.chat.id
     await _.send_message(
