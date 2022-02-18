@@ -40,7 +40,7 @@ async def bot_sys_stats():
     return stats
 
 
-@app.on_message(filters.command(["system", "الاحصائيات"]) & ~filters.edited)
+@app.on_message(filters.command(["system", "الاحصائيات",]) & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
     try:
@@ -109,7 +109,7 @@ async def stats_markup(_, CallbackQuery):
 **بقي التخزين:** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
-        await CallbackQuery.answer("Getting Bot Stats...", show_alert=True)
+        await CallbackQuery.answer("الحصول على احصائيات البوت", show_alert=True)
         served_chats = []
         chats = await get_served_chats()
         for chat in chats:
