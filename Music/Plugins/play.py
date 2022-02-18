@@ -208,7 +208,7 @@ async def play(_, message: Message):
             try:
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await message.reply(
-                    f"{ASSNAME} Berhasil Bergabung",
+                    f"{ASSNAME} تم انضمام المساعد بناج💕 ،،",
                 )
                 await remove_active_chat(chat_id)
             except Exception as e:
@@ -249,7 +249,7 @@ async def play(_, message: Message):
         what = "Audio Searched"
         await LOG_CHAT(message, what)
         mystic = await message.reply_text(
-            f"*جـاري معالجهرالصوت من {username}**"
+            f"*جـاري معالجه الصوت انتظر❤️ {username}**"
         )
         if audio.file_size > 157286400:
             await mystic.edit_text("Ukuran File Audio Harus Kurang dari 150 mb")
@@ -408,7 +408,7 @@ async def play(_, message: Message):
         what = "Query Given"
         await LOG_CHAT(message, what)
         query = message.text.split(None, 1)[1]
-        mystic = await message.reply_text("**جــاري الـبـحث الان 🐢**")
+        mystic = await message.reply_text("**جاري العثور علي الاغنيه انتظر**")
         try:
             a = VideosSearch(query, limit=5)
             result = (a.result()).get("result")
@@ -429,7 +429,7 @@ async def play(_, message: Message):
             ID5 = result[4]["id"]
         except Exception as e:
             return await mystic.edit_text(
-                f"Lagu Tidak Ditemukan.\n**Kemungkinan Alasan:** {e}"
+                f"لم يتم العثور علي الاغنيه.\n**سبب محتمل:** {e}"
             )
         thumb ="cache/IMG_20211105_143948_192.jpg"
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
@@ -769,7 +769,7 @@ async def popat(_,CallbackQuery):
             
 
 
-@app.on_message(filters.command("playplaylist"))
+@app.on_message(filters.command(["playplaylist", "قائمه التشغيل",]))
 async def play_playlist_cmd(_, message):
     thumb ="cache/IMG_20211230_211509_034.jpg"
     user_id = message.from_user.id
@@ -777,7 +777,7 @@ async def play_playlist_cmd(_, message):
     buttons = playlist_markup(user_name, user_id)
     await message.reply_photo(
     photo=thumb, 
-    caption=("**__Music's Playlist Feature__**\n\nSelect the Playlist you want to play!."),    
+    caption=("**__اهلا بك في ميزه قائمة التشغيل__**\n\nحدد قائمة التشغيل التي تريد تشغيلها💕 ،،"),    
     reply_markup=InlineKeyboardMarkup(buttons),
     )
     return
