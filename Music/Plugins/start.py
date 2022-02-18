@@ -38,14 +38,14 @@ from pyrogram.types import (
 def start_pannel():
     buttons = [
         [
-            InlineKeyboardButton(text="جـروب الـدعـم :📚​", url=f"https://t.me/SE_MO5"),
-            InlineKeyboardButton(text="قـنـاة الـبـوت :💻", url=f"https://t.me/semo_elsultan2"),
+            InlineKeyboardButton(text="جـروب الـدعـم :📚​", url=f"https://t.me/G_SMSM"),
+            InlineKeyboardButton(text="قـنـاة الـبـوت :💻", url=f"https://t.me/C_SMSM"),
         ],
         [
-            InlineKeyboardButton("الاوامـــر مـن هـنـا :🔥", url="https://t.me/SE_MO_1/80"),
+            InlineKeyboardButton("الاوامـــر مـن هـنـا :🔥", url="https://t.me/C_SMSM/5626"),
         ],
         [
-            InlineKeyboardButton("ˢᴱᴹᴼ ᴱᴸᴷᴮᴱᴿ°", url="https://t.me/S_E_M_O_E_L_K_B_E_R"),
+            InlineKeyboardButton("𝐃𝐞𝐯-𝐒𝐦𝐬𝐦°", url="https://t.me/PV_SMSM"),
         ],
     ]
     return (
@@ -58,17 +58,17 @@ pstart_markup = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                "➕ اضـفـنــي الـي مـجـمـوعـتك​ ➕", url=f"https://t.me/MIIUSC_8INOITY_BOT?startgroup=true"),
+                "➕ اضـفـنــي الـي مـجـمـوعـتك​ ➕", url=f"https://t.me/M_SMSM_BOT?startgroup=true"),
         ],
         [
-            InlineKeyboardButton(text="جــروب الـدعـم :📚", url=f"https://t.me/SE_MO5"),
-            InlineKeyboardButton("قـنـاة الـبـوت : 💻", url=f"https://t.me/semo_elsultan2"),
+            InlineKeyboardButton(text="جــروب الـدعـم :📚", url=f"https://t.me/G_SMSM"),
+            InlineKeyboardButton("قـنـاة الـبـوت : 💻", url=f"https://t.me/C_SMSM"),
         ],
         [
-            InlineKeyboardButton("الاوامـر مـن هـنـا : 🎧", url="https://t.me/SE_MO_1/80"),
+            InlineKeyboardButton("الاوامـر مـن هـنـا : 🎧", url="https://t.me/C_SMSM/5626"),
         ],
         [
-            InlineKeyboardButton("ˢᴱᴹᴼ ᴱᴸᴷᴮᴱᴿ°", url="https://t.me/S_E_M_O_E_L_K_B_E_R"),
+            InlineKeyboardButton("𝐃𝐞𝐯-𝐒𝐦𝐬𝐦°", url="https://t.me/PV_SMSM"),
         ],
     ]
 )
